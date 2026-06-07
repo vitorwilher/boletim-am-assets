@@ -18,10 +18,11 @@
 -->
 <style>
   :root{
-    --ink:#141414; --muted:#5a5a5a; --soft:#8a8a8a;
-    --bg:#ffffff; --alt:#f7f5f2; --line:#e7e3dc;
-    --accent:#b8860b;            /* dourado editorial — trocar pela cor da marca */
-    --cta:#141414; --cta-text:#ffffff;
+    --ink:#0a0e17; --muted:#475064; --soft:#8a93a6;
+    --bg:#ffffff; --alt:#f2f5fb; --line:#e2e7f0;
+    --navy:#0a0e17; --navy2:#101d3a;
+    --accent:#2563eb;            /* azul Análise Macro — ajustar se houver hex oficial */
+    --cta:#2563eb; --cta-text:#ffffff;
   }
   *{box-sizing:border-box}
   body{margin:0;color:var(--ink);background:var(--bg);
@@ -38,14 +39,19 @@
   .accenttext{color:var(--accent)}
 
   /* HERO */
-  .hero{background:linear-gradient(180deg,#fbf9f5 0%,#ffffff 100%);border-bottom:1px solid var(--line);padding:54px 0 48px}
-  .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:42px;align-items:center}
-  .avatar{width:148px;height:148px;border-radius:50%;border:4px solid #fff;box-shadow:0 8px 30px rgba(0,0,0,.14);
-    background:#141414 url('vitor.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;
-    color:#fff;font-family:Georgia,serif;font-size:46px;font-weight:700}
-  .who-mini{display:flex;align-items:center;gap:14px;margin:22px 0 0}
-  .who-mini small{color:var(--soft);font-size:14px;line-height:1.4}
-  .who-mini b{display:block;color:var(--ink);font-size:15px}
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:60px 0 56px}
+  .hero .eyebrow{color:#7da2ff}
+  .hero h1{color:#fff}
+  .hero .lead{color:#c4cde0}
+  .hero .accenttext{color:#7da2ff}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
+  .hero-photo{background:var(--navy) url('vitor.jpg') center 10%/cover no-repeat;border-radius:18px;min-height:480px;
+    box-shadow:0 24px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08)}
+  .cred{display:flex;align-items:center;gap:8px;margin:18px 0 22px;color:#aab6cf;font-size:14px;flex-wrap:wrap}
+  .cred b{color:#fff}
+  /* foto circular (seção "quem escreve") — usa a mesma vitor.jpg */
+  .avatar{width:200px;height:200px;border-radius:50%;border:4px solid #fff;
+    background:var(--navy) url('vitor.jpg') center 12%/cover no-repeat;box-shadow:0 12px 36px rgba(10,20,40,.28)}
 
   /* FORM */
   .form{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.06)}
@@ -60,6 +66,8 @@
   /* SECTIONS */
   section{padding:56px 0}
   .alt{background:var(--alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .darkcta{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff}
+  .darkcta h2{color:#fff} .darkcta .lead{color:#c4cde0}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
   .card .ico{font-size:24px}
@@ -78,7 +86,7 @@
 
   /* WHO */
   .who{display:grid;grid-template-columns:200px 1fr;gap:34px;align-items:start}
-  .who .avatar{width:180px;height:180px;font-size:54px}
+  .who .avatar{width:210px;height:210px}
   .sign{font-family:Georgia,serif;font-style:italic;font-size:22px;color:var(--ink);margin-top:14px}
 
   /* EDITIONS */
@@ -90,7 +98,7 @@
 
   /* STATS */
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:center}
-  .stat .num{font-family:Georgia,serif;font-size:38px;font-weight:700}
+  .stat .num{font-family:Georgia,serif;font-size:38px;font-weight:700;color:var(--accent)}
   .stat .lbl{color:var(--muted);font-size:14px}
 
   /* FAQ */
@@ -120,22 +128,17 @@
       <p class="eyebrow">Boletim AM · Análise Macro</p>
       <h1>Sou o Vítor Wilher. Toda semana eu traduzo a <span class="accenttext">IA Generativa</span> para quem decide — não para quem programa.</h1>
       <p class="lead">Economia, inteligência artificial e o que muda no seu trabalho, em linguagem de gente. Todo domingo às 20h, direto no seu e-mail. <strong>Sem código, sem hype.</strong></p>
-      <div class="who-mini">
-        <!-- [FOTO] trocar pelo retrato real -->
-        <div class="avatar" style="width:54px;height:54px;font-size:20px;border-width:2px">VW</div>
-        <small><b>Vítor Wilher</b>Mestre em economia · fundador da Análise Macro · +5 mil alunos formados</small>
-      </div>
+      <p class="cred"><b>Vítor Wilher</b> · Mestre em economia · fundador da Análise Macro · +5 mil alunos</p>
+      <!-- FORM (conectar ao ConvertKit/Kit) -->
+      <form class="form" action="#" method="post">
+        <input type="email" name="email_address" placeholder="Seu melhor e-mail" required>
+        <input type="tel" name="whatsapp" placeholder="WhatsApp (opcional)">
+        <button class="btn" type="submit">Quero o Boletim</button>
+        <p class="trust">Grátis · Cancele em 1 clique · Sem spam</p>
+      </form>
     </div>
-
-    <!-- FORM (conectar ao ConvertKit/Kit) -->
-    <form class="form" action="#" method="post">
-      <h3>Receba o Boletim AM</h3>
-      <p class="sm">Grátis. Todo domingo às 20h + pílulas durante a semana.</p>
-      <input type="email" name="email_address" placeholder="Seu melhor e-mail" required>
-      <input type="tel" name="whatsapp" placeholder="WhatsApp (opcional)">
-      <button class="btn" type="submit">Quero o Boletim</button>
-      <p class="trust">Você pode cancelar em 1 clique. Sem spam.</p>
-    </form>
+    <!-- [FOTO] fundo = landing/vitor.jpg (se faltar, mostra um painel navy) -->
+    <div class="hero-photo" role="img" aria-label="Vítor Wilher, fundador da Análise Macro"></div>
   </div>
 </header>
 
@@ -188,9 +191,8 @@
 <!-- ===================== QUEM ESCREVE ===================== -->
 <section>
   <div class="wrap who">
-    <!-- [FOTO] descomentar e usar o retrato real:
-         <img src="vitor.jpg" alt="Vítor Wilher" class="avatar"> -->
-    <div class="avatar">VW</div>
+    <!-- foto circular = landing/vitor.jpg -->
+    <div class="avatar" role="img" aria-label="Vítor Wilher"></div>
     <div>
       <p class="eyebrow">Quem escreve pra você</p>
       <h2>Não é "uma newsletter". Sou eu, toda semana.</h2>
@@ -250,7 +252,7 @@
 </section>
 
 <!-- ===================== CTA FINAL ===================== -->
-<section>
+<section class="darkcta">
   <div class="wrap" style="max-width:620px;text-align:center">
     <h2>Entenda a IA de verdade — começando neste domingo.</h2>
     <p class="lead">Junte-se a quem decide com base em dados, não em manchete.</p>
